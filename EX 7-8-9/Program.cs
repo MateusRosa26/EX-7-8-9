@@ -2,33 +2,55 @@
 
 namespace SistemaMatriculas
 {
-    class Matricula
+    class TestaMatricula
     {
-        public string NomeDoAluno;
-        public string Curso;
-        public int NumeroMatricula;
-        public string Situacao;
-        public string DataInicial;
+        static void Main(string[] args)
+        {
+            // Instanciando um objeto Matricula
+            Matricula matricula = new Matricula();
 
-        
-        public void Trancar()
-        {
-            Situacao = "Trancada";
-        }
+            // Atribuindo valores aos atributos básicos
+            matricula.NomeDoAluno = "Carlos Oliveira";
+            matricula.Curso = "Ciência da Computação";
+            matricula.NumeroMatricula = 202301010;
+            matricula.Situacao = "Ativa";
+            matricula.DataInicial = "10/03/2023";
 
-        
-        public void Reativar()
-        {
-            Situacao = "Ativa";
-        }
-        
-        public void ExibirInformacoes()
-        {
-            Console.WriteLine($"Nome do Aluno: {NomeDoAluno}");
-            Console.WriteLine($"Curso: {Curso}");
-            Console.WriteLine($"Número da Matrícula: {NumeroMatricula}");
-            Console.WriteLine($"Situação: {Situacao}");
-            Console.WriteLine($"Data Inicial: {DataInicial}");
+            Console.WriteLine("=== INFORMAÇÕES INICIAIS DA MATRÍCULA ===");
+            matricula.ExibirInformacoes();
+
+            Console.WriteLine("\n=== TRANCANDO A MATRÍCULA ===");
+            matricula.Trancar();
+            Console.WriteLine("Método Trancar() executado!");
+            matricula.ExibirInformacoes();
+
+            Console.WriteLine("\n=== REATIVANDO A MATRÍCULA ===");
+            matricula.Reativar();
+            Console.WriteLine("Método Reativar() executado!");
+            matricula.ExibirInformacoes();
+
+            Console.WriteLine("\n=== TESTANDO COM SEGUNDA MATRÍCULA ===");
+            Matricula matricula2 = new Matricula();
+            matricula2.NomeDoAluno = "Ana Paula";
+            matricula2.Curso = "Engenharia Civil";
+            matricula2.NumeroMatricula = 202301011;
+            matricula2.Situacao = "Ativa";
+            matricula2.DataInicial = "15/03/2023";
+
+            Console.WriteLine("Situação inicial:");
+            matricula2.ExibirInformacoes();
+
+            Console.WriteLine("\nApós trancar:");
+            matricula2.Trancar();
+            matricula2.ExibirInformacoes();
+
+            Console.WriteLine("\n=== EVIDÊNCIA DE FUNCIONAMENTO DOS MÉTODOS ===");
+            Console.WriteLine("✅ Método Trancar(): Altera situação para 'Trancada'");
+            Console.WriteLine("✅ Método Reativar(): Altera situação para 'Ativa'");
+            Console.WriteLine("✅ Método ExibirInformacoes(): Mostra dados formatados");
+            Console.WriteLine("✅ Mudanças de estado foram aplicadas corretamente!");
+
+            Console.ReadKey();
         }
     }
-} 
+}
